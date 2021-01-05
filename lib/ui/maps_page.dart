@@ -40,6 +40,7 @@ class _MapsPageState extends State<MapsPage> {
               initialCameraPosition: initialCamera,
               markers: _markers,
               onMapCreated: (GoogleMapController controller) {
+                controller.setMapStyle(MapsStyle.mapStyles);
                 _mapController.complete(controller);
                 markerOnMap();
               },
@@ -83,7 +84,8 @@ class _MapsPageState extends State<MapsPage> {
   }
 
   void getIconsCustom() async {
-    final Uint8List markerIcon = await getBytesFromAsset( 'assets/driver_icon.png', 80);
+    final Uint8List markerIcon =
+        await getBytesFromAsset('assets/driver_icon.png', 80);
     userIcon = BitmapDescriptor.fromBytes(markerIcon);
   }
 
