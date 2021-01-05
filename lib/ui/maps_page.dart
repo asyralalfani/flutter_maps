@@ -13,16 +13,7 @@ class _MapsPageState extends State<MapsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return GoogleMap(
-      mapType: MapType.normal,
-      myLocationEnabled: true,
-      compassEnabled: true,
-      tiltGesturesEnabled: false,
-      zoomControlsEnabled: false,
-      initialCameraPosition: initialCamera,
-      onMapCreated: (GoogleMapController controller) {
-        _mapController.complete(controller);
-      },
-    );
+    MapsServices.checkPermissionService().then((value) => print(value));
+    return Container();
   }
 }
