@@ -32,19 +32,23 @@ class _MapsPageState extends State<MapsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: (isLoaderMap == true)
-          ? GoogleMap(
-              mapType: MapType.normal,
-              compassEnabled: false,
-              tiltGesturesEnabled: false,
-              zoomControlsEnabled: false,
-              initialCameraPosition: initialCamera,
-              markers: _markers,
-              onMapCreated: (GoogleMapController controller) {
-                controller.setMapStyle(MapsStyle.mapStyles);
-                _mapController.complete(controller);
-                markerOnMap();
-              },
-            )
+          ? Stack(
+            children: [
+              GoogleMap(
+                  mapType: MapType.normal,
+                  compassEnabled: false,
+                  tiltGesturesEnabled: false,
+                  zoomControlsEnabled: false,
+                  initialCameraPosition: initialCamera,
+                  markers: _markers,
+                  onMapCreated: (GoogleMapController controller) {
+                    controller.setMapStyle(MapsStyle.mapStyles);
+                    _mapController.complete(controller);
+                    markerOnMap();
+                  },
+                ),
+            ],
+          )
           : Center(
               child: SpinKitFadingCircle(
                 size: 50,

@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
+  draggable_bottom_sheet: ^0.1.2
   flutter_spinkit: ^4.1.2+1
   google_maps_flutter: ^1.0.6
   location: ^3.2.1
